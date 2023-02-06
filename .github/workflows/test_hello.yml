@@ -39,4 +39,4 @@ jobs:
       - name: Run the Python code in helloworld.py
         run: |
           echo "Running Python code"
-          python helloworld.py  
+          python testflow.py  
