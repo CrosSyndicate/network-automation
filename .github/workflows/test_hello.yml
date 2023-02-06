@@ -36,7 +36,7 @@ jobs:
           
       - run: echo "Python has been set up."
        
-      - name: Run the Python code in helloworld.py
+      - name: Run the Python code in testflow.py
         run: |
           echo "Running Python code"
           python testflow.py  
