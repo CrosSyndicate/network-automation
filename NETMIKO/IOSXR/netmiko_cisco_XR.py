@@ -1,4 +1,4 @@
-#Simple script to connect to CISCO sandbox and report back ip info
+#Simple script to connect to CISCO XR sandbox and report back ip info
 
 from netmiko import ConnectHandler
 
