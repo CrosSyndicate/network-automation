@@ -1,0 +1,117 @@
+
+Thu Feb  9 03:51:33.093 UTC
+Building configuration...
+!! IOS XR Configuration 7.3.2
+!! Last configuration change at Thu Feb  9 03:21:01 2023 by admin
+!
+hostname Brandon
+banner login @this is login banner
+no unauthorized access@
+locale country HU
+locale language hu
+username root
+ group root-lr
+ group cisco-support
+ secret 10 $6$XvYiZ/CdPNuK4Z/.$3/15yGC1Br2nlIy/AwZVNsl0BbD.XLbqAL2h8hR4CpBxM.ir4ZilYykiaTqMwe/EB6UySyH7ea/x09ajR6NXz.
+!
+username admin
+ group root-lr
+ group cisco-support
+ secret 10 $6$vEaDc/Yt1OyU4c/.$v0lze75JluVDfcM6rgDlsFY3oMB6ODv6l5rgRnk3bFrvnzSFnoEIF.hcc1O/2.YxnAuRLSy7VQGmGedvoBlOp.
+!
+grpc
+ port 57344
+ address-family ipv4
+!
+telemetry model-driven
+ destination-group logstash
+  address-family ipv4 193.122.70.95 port 57300
+   protocol tcp
+  !
+ !
+ sensor-group general
+  sensor-path Cisco-IOS-XR-infra-statsd-oper:infra-statistics/interfaces/interface/latest/generic-counters
+ !
+ subscription general
+ !
+ subscription logstash
+ !
+ subscription logstash_general
+  sensor-group-id general sample-interval 10000
+  destination-id logstash
+ !
+!
+tpa
+ vrf default
+  address-family ipv4
+   default-route mgmt
+  !
+ !
+!
+line console
+ exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 0
+!
+line default
+ exec-timeout 0 0
+ absolute-timeout 0
+ session-timeout 0
+!
+call-home
+ service active
+ contact smart-licensing
+ profile CiscoTAC-1
+  active
+  destination transport-method http
+ !
+!
+netconf-yang agent
+ ssh
+!
+interface Loopback100
+ description ***MERGE LOOPBACK 100****
+ ipv4 address 1.1.1.100 255.255.255.255
+!
+interface Loopback200
+ description ***MERGE LOOPBACK 200****
+ ipv4 address 1.1.1.200 255.255.255.255
+!
+interface MgmtEth0/RP0/CPU0/0
+ ipv4 address 10.10.20.175 255.255.255.0
+!
+interface GigabitEthernet0/0/0/0
+ ipv4 address 192.168.10.1 255.255.255.0
+!
+interface GigabitEthernet0/0/0/1
+ ipv4 address 192.168.11.1 255.255.255.0
+ shutdown
+!
+interface GigabitEthernet0/0/0/2
+ shutdown
+!
+interface GigabitEthernet0/0/0/3
+ shutdown
+!
+interface GigabitEthernet0/0/0/4
+ shutdown
+!
+interface GigabitEthernet0/0/0/5
+ shutdown
+!
+interface GigabitEthernet0/0/0/6
+ shutdown
+!
+router static
+ address-family ipv4 unicast
+  0.0.0.0/0 10.10.20.254
+ !
+!
+xml agent tty
+ iteration off
+!
+netconf agent tty
+!
+ssh server v2
+ssh server vrf default
+end
