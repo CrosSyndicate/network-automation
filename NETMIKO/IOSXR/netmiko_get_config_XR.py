@@ -1,4 +1,4 @@
-#Simple script to connect to CISCO XR sandbox and write config to a file named switch_running.txt
+#script to connect to CISCO XR sandbox and write config to a file named switch_running.txt
 
 from netmiko import ConnectHandler
 
