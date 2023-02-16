@@ -1,7 +1,7 @@
 $adgroups = "group1", "group2"
 # changed group names to generic names for at home work
 
-#$filter = (EmailAddress -notlike '*@tpg.com') - passing this variable into function broke it, no output
+#$filter = (EmailAddress -notlike '*@DOMAIN.com') - passing this variable into function broke it, no output
 #The above comment was solved using a custom object with @{name = "groupname";expression ={$group}}
 
 
@@ -18,4 +18,4 @@ $results | Export-CSV -Path “group_output.csv” -NoTypeInformation -Force
 
 #added to the $results CSV export, -NoTypeInformation to remove header in CSV - just making it cleaner to read
 
-# -Filter {(EmailAddress -notlike '*@tpg.com')} - Trying to use this to filter only non @tpg.com emails - it's pulling every non TPG email
+# -Filter {(EmailAddress -notlike '*@DOMAIN.com')} - Trying to use this to filter only non @DOMAIN.com emails - it's pulling every non DOMAIN email
