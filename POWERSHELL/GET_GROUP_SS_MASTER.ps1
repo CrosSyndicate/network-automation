@@ -9,7 +9,7 @@ $results = @();
 foreach ($group in $adgroups) 
 
 {
-   $results+= (Get-ADGroupMember -Identity $group -Recursive | Get-ADUser -Properties | Select name, SamAccountName, @{name = "groupname";expression ={$group}})
+   $results+= (Get-ADGroupMember -Identity $group -Recursive | Get-ADUser -Properties | Select-Object name, SamAccountName, @{name = "groupname";expression ={$group}})
 
 }
 
