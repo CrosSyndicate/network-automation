@@ -1,7 +1,8 @@
 $adgroups = "group1", "group2"
-# changed group names to generic names
+# changed group names to generic names for at home work
 
 #$filter = (EmailAddress -notlike '*@tpg.com') - passing this variable into function broke it, no output
+#The above comment was solved using a custom object with @{name = "groupname";expression ={$group}}
 
 
 $results = @();
@@ -9,7 +10,7 @@ $results = @();
 foreach ($group in $adgroups) 
 
 {
-   $results+= (Get-ADGroupMember -Identity $group -Recursive | Get-ADUser -Properties | Select-Object name, SamAccountName, @{name = "groupname";expression ={$group}})
+   $results+= (Get-ADGroupMember -Identity $group -Recursive | Get-ADUser -Properties DisplayName | Select-Object name, SamAccountName, DisplayName, @{name = "groupname";expression ={$group}})
 
 }
 

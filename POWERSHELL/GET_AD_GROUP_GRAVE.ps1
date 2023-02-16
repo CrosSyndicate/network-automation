@@ -1,6 +1,6 @@
-$adgroups = "app_okta_investran_ssp_prod", "app_okta_investran_uat_ssp"
-$filter = (EmailAddress -notlike '*@tpg.com')
-
+$adgroups = "group1", "group2"
+$filter = (EmailAddress -notlike '*@domain.com')
+#deleted work specific groups and domains from this script
 
 $results = @();
 
@@ -13,4 +13,4 @@ foreach ($group in $adgroups)
 
 $results | Export-CSV -Path “newtest2.csv”
 
-# -Filter {(EmailAddress -notlike '*@tpg.com')} - Trying to use this to filter only non @tpg.com emails - it's pulling every non TPG email
+# -Filter {(EmailAddress -notlike '*@domain.com')} - Trying to use this to filter only non @domain.com emails - it's pulling every non DOMAIN email

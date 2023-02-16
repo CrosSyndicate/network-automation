@@ -1,9 +1,11 @@
+#script has been edited to use generic username and domain names
+
 | Get-ADUSER -Properties Name, Mail 
 
 
 ad_group_1_redacted, ad_group_2_redacted
 
-C:\Users\cgriffith
+C:\Users\%USERNAME%
 
 Get-ADGroupMember -Identity ad_group_1_redacted | Select-Object name, objectClass,distinguishedName | Export-CSV -Path “adgroupmembers.csv”
 
