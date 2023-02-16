@@ -14,6 +14,8 @@ foreach ($group in $adgroups)
 
 }
 
-$results | Export-CSV -Path “group_output.csv”
+$results | Export-CSV -Path “group_output.csv” -NoTypeInformation -Force
+
+#added to the $results CSV export, -NoTypeInformation to remove header in CSV - just making it cleaner to read
 
 # -Filter {(EmailAddress -notlike '*@tpg.com')} - Trying to use this to filter only non @tpg.com emails - it's pulling every non TPG email
