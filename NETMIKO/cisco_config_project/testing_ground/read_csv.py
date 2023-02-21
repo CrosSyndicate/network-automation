@@ -46,12 +46,7 @@ def pandas_csv():
 
 pandas_csv()
 
-def one_column():
-     print("\n ***LIST ONE COLUMN USING PANDAS*** \n")
-     data = pd.read_csv("test_users.csv", usecols = ['DisplayName'])
-     print("\nData only in 'DisplayName':", data)
 
-one_column()
 
 
 
@@ -59,6 +54,15 @@ one_column()
 
 
 #GRAVEYARD#
+
+
+#ATTEMPTING TO PRINT A SINGLE CLOUMN - NOT WORKING"
+# def one_column():
+#      print("\n ***LIST ONE COLUMN USING PANDAS*** \n")
+#      data = pd.read_csv("test_users.csv", usecols = ['DisplayName'])
+#      print("\nData only in 'DisplayName':", data)
+
+# one_column()
 
 # users = open("group_users.csv")
 
