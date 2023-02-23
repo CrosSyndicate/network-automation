@@ -11,7 +11,6 @@ foreach ($group in $adgroups)
 
 {
    $results+= (Get-ADGroupMember -Identity $group -Recursive | Get-ADUser -Properties DisplayName | Select-Object name, SamAccountName, DisplayName, @{name = "groupname";expression ={$group}})
-
 }
 
 $results | Export-CSV -Path “group_output.csv” -NoTypeInformation -Force

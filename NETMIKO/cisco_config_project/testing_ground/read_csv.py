@@ -47,6 +47,10 @@ def pandas_csv():
 pandas_csv()
 
 
+#define CSV that contains userlist
+user_list = open('test_users.csv')
+user_list.readline()
+csv_user_list = csv.reader(user_list)
 
 
 
