@@ -18,6 +18,10 @@ XR1 = {
     "password":"C1sco12345"
 }
 
+#define CSV that contains userlist
+user_list = open('test_users.csv')
+user_list.readline()
+csv_user_list = csv.reader(user_list)
 
 # define the device
 # enable EXEC mode
